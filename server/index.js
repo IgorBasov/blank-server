@@ -1,5 +1,3 @@
-const a = !!1;
+require('./utils/log');
 
-if (a) {
-  module.exports = `message ${a}`;
-}
+log.info('info message', { author: 'Ni40lay' }, { a: 10 });

@@ -30,5 +30,9 @@
     "install": "^0.10.4",
     "jscs": "^3.0.7",
     "npm": "^5.6.0"
+  },
+  "dependencies": {
+    "winston": "^2.4.0",
+    "winston-mongodb": "3.0.1"
   }
 }

@@ -15,6 +15,8 @@
 
 ### 3. Linter
 
+В качестве стандарта оформления программного кода используются правила от [Airbnb](https://github.com/airbnb/javascript) ([Airbnb JavaScript в переводе Леонида Лебедева](https://github.com/leonidlebedev/javascript-airbnb))
+
 Для проверки оформления программного кода на соответствие стандарту добавлен механизм:
 1. проверка кода отельной командой:
 
@@ -33,6 +35,12 @@ $ npm run lint-fix
 ``` bash
 $ npm start
 ```
+
+##### Ссылки
+
+1. Используется _linter_ [ESLint](https://eslint.org/)
+2. Правила оформления кода [Airbnb](https://github.com/airbnb/javascript). С руководством на русском языке можно ознакомиться по ссылке [Airbnb JavaScript в переводе Леонида Лебедева](https://github.com/leonidlebedev/javascript-airbnb).
+3. npm-пакет, который применяет правила Airbnb в ESLint [eslint-config-airbnb-base](https://www.npmjs.com/package/eslint-config-airbnb-base)
 
 ### 4. Tests
 

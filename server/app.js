@@ -30,7 +30,7 @@ module.exports = {
       log.error('not found', { url: req.originalUrl, method: req.method });
       res
         .status(404)
-        .render('404.error');
+        .render('404-error');
     });
 
     // error handler
@@ -39,7 +39,7 @@ module.exports = {
       log.error('server error', { url: req.originalUrl, method: req.method, error });
       res
         .status(500)
-        .render('500.error');
+        .render('500-error');
     });
 
     const server = http.createServer(app);

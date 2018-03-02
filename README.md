@@ -9,7 +9,31 @@
 4. Добавлено окружения для написания **тестов**
 5. Добавлен базовый функционал для **логирования**
 
-### 1. NodeJS + Express кластер
+### 1. NodeJS кластер + ExpressJS
+
+Для распараллеливания серверного приложения в рамках одного сервера используется модуль [cluster](https://nodejs.org/api/cluster.html). 
+
+В основе сервера лежит _framework_ [ExpressJS](http://expressjs.com).
+
+За генерацию клиентского приложения отвечает шаблонизатор [EJS](http://ejs.co/). Представления для шаблонизатора расположены в папке `frontend/views`.
+
+За разбор куки из запроса отвечает _middleware_ [cookie-parser](https://github.com/expressjs/cookie-parser).
+
+Разбор параметров из тела запроса - _middleware_ [body-parser](https://github.com/expressjs/body-parser).
+
+Статику _ExpressJS_ сервер отдает из папки `frontend`.
+
+За маршрутизацию отвечает модуль `server/router`. В директории `server/router/routes` располагаются маршруты.
+
+Количество запускаемых копий приложения в рамках одного сервера можно ограничить указав значение для переменной окружения *CPU_ALLOWED_QTY* (подробнее - в [разделе **Переменные окружения**](#переменные-окружения)). 
+
+##### Ссылки
+
+1. Модуль [cluster](https://nodejs.org/api/cluster.html)
+2. _Framework_ [ExpressJS](http://expressjs.com)
+3. Шаблонизатор [EJS](http://ejs.co/)
+4. _Middleware_ [cookie-parser](https://github.com/expressjs/cookie-parser)
+5. _Middleware_ [body-parser](https://github.com/expressjs/body-parser)
 
 ### 2. Обработка ошибок
 
@@ -107,6 +131,7 @@ log.error('error message', error);
 Используются в `server/config/configs/server.config.js`
 - **SERVER_HOST** - хост серверного приложения (по умолчанию `'127.0.0.1'`)
 - **SERVER_PORT** - порт, на котором запускается серверное приложение (по умолчанию `3000`)
+- **CPU_ALLOWED_QTY** - максимальное количество запускаемы копий приложения. Если не указано, то колическтво копий будет равно количеству ядер/потоков процессора сервера. Если указано значение выше, чем количество потоков/ядер, то количество копий будет равно количеству потоков/ядер (по умолчанию `false`, т.е., не указано).
 
 ### Логирование
 Используются в `server/config/configs/log.config.js`

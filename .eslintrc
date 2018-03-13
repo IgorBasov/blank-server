@@ -1,9 +1,15 @@
 {
-  "extends": "airbnb-base",
+  "extends": [
+    "airbnb-base",
+    "plugin:security/recommended"
+  ],
   "rules": {
     "no-unused-vars": ["error", { "varsIgnorePattern": "log" }]
   },
   "globals": {
     "log": true
-  }
+  },
+  "plugins": [
+    "security"
+  ]  
 }

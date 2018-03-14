@@ -27,6 +27,17 @@
 
 Количество запускаемых копий приложения в рамках одного сервера можно ограничить указав значение для переменной окружения *CPU_ALLOWED_QTY* (подробнее - в [разделе **Переменные окружения**](#переменные-окружения)). 
 
+##### Безопасность
+
+Для защиты приложения от некоторых широкоиспользуемых веб-уязвимостей используется модуль [helmet](https://github.com/helmetjs/helmet).
+С дополнительными способами защиты можно познакомиться в статьях [Production Best Practices: Security](http://expressjs.com/en/advanced/best-practice-security.html), [nodesecurity.io Tools](https://nodesecurity.io/opensource), [9 Security Tips to Keep Express from Getting Pwned](http://nodesource.com/blog/nine-security-tips-to-keep-express-from-getting-pwned/)
+
+Проверка кода на наличие уязвимостей может быть выполнена командой
+
+``` bash
+$ npm run security-check
+```
+
 ##### Ссылки
 
 1. Модуль [cluster](https://nodejs.org/api/cluster.html)
@@ -34,13 +45,17 @@
 3. Шаблонизатор [EJS](http://ejs.co/)
 4. _Middleware_ [cookie-parser](https://github.com/expressjs/cookie-parser)
 5. _Middleware_ [body-parser](https://github.com/expressjs/body-parser)
+6. _Middleware_ [helmet](https://github.com/helmetjs/helmet)
+7. [Production Best Practices: Security](http://expressjs.com/en/advanced/best-practice-security.html)
+8. [nodesecurity.io Tools](https://nodesecurity.io/opensource)
+9. [9 Security Tips to Keep Express from Getting Pwned](http://nodesource.com/blog/nine-security-tips-to-keep-express-from-getting-pwned/)
 
 ### 2. Обработка ошибок
 
 ### 3. Linter
 
 В качестве стандарта оформления программного кода используются правила от [Airbnb](https://github.com/airbnb/javascript) ([Airbnb JavaScript в переводе Леонида Лебедева](https://github.com/leonidlebedev/javascript-airbnb)).
-Кроме указанных выше правил применяются [правила ESLint](https://eslint.org/docs/rules/).
+Кроме указанных выше правил применяются [правила ESLint](https://eslint.org/docs/rules/) и предотвращающие написание уязвимого кода [правила **Node Security**](https://github.com/nodesecurity/eslint-plugin-security)
 
 Для проверки оформления программного кода на соответствие стандарту добавлен механизм:
 1. проверка кода отельной командой:
@@ -66,6 +81,7 @@ $ npm start
 1. Используется _linter_ [ESLint](https://eslint.org/)
 2. Правила оформления кода [Airbnb](https://github.com/airbnb/javascript) и [правила ESLint](https://eslint.org/docs/rules/). С руководством **Airbnb** на русском языке можно ознакомиться по ссылке [Airbnb JavaScript в переводе Леонида Лебедева](https://github.com/leonidlebedev/javascript-airbnb). 
 3. *npm*-пакет, который применяет правила **Airbnb** в **ESLint** [eslint-config-airbnb-base](https://www.npmjs.com/package/eslint-config-airbnb-base)
+4. [Правила **Node Security**](https://github.com/nodesecurity/eslint-plugin-security)
 
 ### 4. Tests
 

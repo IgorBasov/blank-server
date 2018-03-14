@@ -5,6 +5,7 @@ const favicon = require('serve-favicon');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 
+const security = require('./middlewares/security.mw');
 const router = require('./router');
 const serverConfig = require('./config').server;
 
@@ -15,6 +16,9 @@ module.exports = {
     // view engine setup
     app.set('views', path.join(__dirname, '../frontend/views'));
     app.set('view engine', 'ejs');
+
+    // add security middlewares
+    security(app);
 
     app.use(favicon(path.join(__dirname, '../frontend', 'favicon.ico')));
     app.use(bodyParser.json());

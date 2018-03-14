@@ -28,6 +28,7 @@ class ConfiguredLogger {
     self.meta = metaInfo || {};
 
     ['info', 'warn', 'error', 'log'].forEach((method) => {
+      // eslint-disable-next-line security/detect-object-injection
       self[method] = (...args) => {
         let meta = args[1] || {};
         if (meta instanceof Error) {
@@ -46,6 +47,7 @@ class ConfiguredLogger {
             name: meta.error.name,
           };
         }
+        // eslint-disable-next-line security/detect-object-injection
         logger[method](args[0], Object.assign(meta, self.meta));
       };
     });
